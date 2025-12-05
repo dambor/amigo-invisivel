@@ -12,4 +12,4 @@ export enum AppStep {
   RESULTS = 'RESULTS'
 }
 
-export const DEFAULT_TEMPLATE = "Olá *{{NOME}}*!\n\nO sorteio do Amigo Oculto foi realizado!\n\nSeu amigo secreto é: *{{AMIGO}}*\n\nPrepare o presente e boa festa!";
+export const DEFAULT_TEMPLATE = "Olá *{{NOME}}*!\n\nO sorteio do Amigo Invisível foi realizado!\n\nSeu amigo invisível é: *{{AMIGO}}*\n\nPrepare o presente e boa festa!";

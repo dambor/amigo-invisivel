@@ -5,7 +5,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 export const generateHolidayMessage = async (tone: string): Promise<string> => {
   try {
     const prompt = `
-      Crie um modelo de mensagem de WhatsApp curto, criativo e formatado para um sorteio de Amigo Oculto (Amigo Secreto).
+      Crie um modelo de mensagem de WhatsApp curto, criativo e formatado para um sorteio de Amigo Invisível.
       
       O tom da mensagem deve ser: ${tone}.
       

@@ -103,7 +103,7 @@ const App: React.FC = () => {
             <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/snow.png')]"></div>
             <Gift className="w-16 h-16 text-white mx-auto mb-4 animate-bounce" />
             <h1 className="text-2xl text-indigo-200 font-medium">Olá, {revealData.n}!</h1>
-            <p className="text-white mt-2">Seu amigo secreto é...</p>
+            <p className="text-white mt-2">Seu amigo invisível é...</p>
           </div>
           <div className="p-10">
             <div className="text-4xl font-extrabold text-indigo-600 tracking-tight transform hover:scale-105 transition-transform duration-300">
@@ -133,7 +133,7 @@ const App: React.FC = () => {
             <div className="bg-indigo-600 p-2 rounded-lg">
               <Gift className="w-6 h-6 text-white" />
             </div>
-            <h1 className="text-xl font-bold text-gray-800">Amigo Secreto</h1>
+            <h1 className="text-xl font-bold text-gray-800">Amigo Invisível</h1>
           </div>
           <div className="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full hidden md:block">
             {step === AppStep.SETUP ? 'Configuração' : 'Resultados'}
