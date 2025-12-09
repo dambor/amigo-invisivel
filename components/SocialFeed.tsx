@@ -51,39 +51,13 @@ export const SocialFeed: React.FC<SocialFeedProps> = ({ group, currentUser, onRe
 
   return (
     <div className="max-w-2xl mx-auto space-y-6 pb-20">
-      
+
       {/* Header / Reveal Section */}
       <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-6 text-white shadow-lg">
         <h1 className="text-2xl font-bold mb-1">{group.name}</h1>
         <p className="text-indigo-100 text-sm mb-6">Bem-vindo(a), {currentUser.name}!</p>
-        
-        <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-          <div className="flex items-center justify-between mb-2">
-            <h2 className="font-semibold flex items-center gap-2">
-              <Gift className="w-6 h-6 text-white" />
-              Seu Amigo Invisível
-            </h2>
-            <button 
-              onClick={() => setShowReveal(!showReveal)}
-              className="text-xs bg-white/20 hover:bg-white/30 px-3 py-1 rounded-full transition-colors flex items-center gap-1"
-            >
-              {showReveal ? <><EyeOff className="w-3 h-3"/> Esconder</> : <><Eye className="w-3 h-3"/> Revelar</>}
-            </button>
-          </div>
-          
-          {showReveal ? (
-            <div className="text-center py-4 animate-fade-in-up">
-              <p className="text-sm text-indigo-100 mb-1">Você tirou:</p>
-              <p className="text-3xl font-extrabold text-white tracking-tight">
-                {currentUser.secretFriendName || 'Ainda não sorteado'}
-              </p>
-            </div>
-          ) : (
-            <div className="text-center py-4 opacity-50">
-              <p className="text-sm">Toque em revelar para ver</p>
-            </div>
-          )}
-        </div>
+
+
       </div>
 
       {/* Create Post */}
@@ -100,12 +74,12 @@ export const SocialFeed: React.FC<SocialFeedProps> = ({ group, currentUser, onRe
             className="w-full p-3 bg-gray-50 border border-gray-200 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 resize-none h-24 text-sm text-gray-900 placeholder-gray-500"
           />
           <div className="flex justify-end mt-2">
-            <button 
+            <button
               type="submit"
               disabled={!newPost.trim() || loading}
               className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 disabled:opacity-50 transition-colors flex items-center gap-2"
             >
-              {loading && <Loader2 className="w-4 h-4 animate-spin"/>}
+              {loading && <Loader2 className="w-4 h-4 animate-spin" />}
               Publicar Desejo
             </button>
           </div>
@@ -130,7 +104,7 @@ export const SocialFeed: React.FC<SocialFeedProps> = ({ group, currentUser, onRe
                   </div>
                   <div>
                     <p className="font-semibold text-gray-900">{getAuthorName(post.authorId)}</p>
-                    <p className="text-xs text-gray-500">{new Date(post.timestamp).toLocaleDateString()} às {new Date(post.timestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</p>
+                    <p className="text-xs text-gray-500">{new Date(post.timestamp).toLocaleDateString()} às {new Date(post.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                   </div>
                 </div>
 
@@ -139,7 +113,7 @@ export const SocialFeed: React.FC<SocialFeedProps> = ({ group, currentUser, onRe
 
                 {/* Actions */}
                 <div className="flex items-center gap-4 border-t border-gray-100 pt-3 mb-3">
-                  <button 
+                  <button
                     onClick={() => handleLike(post.id)}
                     className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${isLiked ? 'text-pink-600' : 'text-gray-500 hover:text-gray-700'}`}
                   >
@@ -160,16 +134,16 @@ export const SocialFeed: React.FC<SocialFeedProps> = ({ group, currentUser, onRe
                       <span className="text-gray-600 break-words">{comment.content}</span>
                     </div>
                   ))}
-                  
+
                   <div className="flex gap-2 mt-2">
                     <input
                       type="text"
                       placeholder="Escreva um comentário..."
                       value={commentText[post.id] || ''}
-                      onChange={(e) => setCommentText({...commentText, [post.id]: e.target.value})}
+                      onChange={(e) => setCommentText({ ...commentText, [post.id]: e.target.value })}
                       className="flex-1 bg-white border border-gray-200 rounded-full px-3 py-1.5 text-sm outline-none focus:border-indigo-400 text-gray-900 placeholder-gray-500"
                     />
-                    <button 
+                    <button
                       onClick={() => handleComment(post.id)}
                       disabled={!commentText[post.id]?.trim()}
                       className="text-indigo-600 disabled:opacity-50"
